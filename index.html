@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alvin Chang | 張允軒</title>
+  <meta name="description" content="Alvin Chang 張允軒 – 國立陽明交通大學傳播研究所｜內容創作者｜品牌行銷實習生" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --ink: #1a1a2e;
+      --ink-soft: #4a4a5e;
+      --muted: #8a8a9a;
+      --line: #e6e6ec;
+      --accent: #2c3e87;
+      --accent-soft: #eef1fb;
+      --shadow: 0 1px 3px rgba(20, 20, 50, 0.04), 0 8px 24px rgba(20, 20, 50, 0.06);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(250, 250, 250, 0.85);
+      backdrop-filter: saturate(180%) blur(12px);
+      -webkit-backdrop-filter: saturate(180%) blur(12px);
+      border-bottom: 1px solid var(--line);
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-name {
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: 0.02em;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .nav-links a {
+      color: var(--ink-soft);
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .nav-links a:hover { color: var(--accent); text-decoration: none; }
+    .lang-toggle {
+      background: var(--ink);
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s;
+    }
+    .lang-toggle:hover { background: var(--accent); }
+
+    /* Hero */
+    main { max-width: 960px; margin: 0 auto; padding: 0 32px; }
+    .hero {
+      padding: 80px 0 64px;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-soft), #d9def0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 64px;
+      font-weight: 600;
+      color: var(--accent);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .hero h1 {
+      font-size: 44px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .hero .subtitle {
+      font-size: 18px;
+      color: var(--ink-soft);
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+    .hero p {
+      color: var(--ink-soft);
+      font-size: 15.5px;
+      max-width: 560px;
+      margin-bottom: 24px;
+    }
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .contact a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      font-size: 14px;
+      color: var(--ink);
+      transition: all 0.2s;
+    }
+    .contact a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    /* Sections */
+    section {
+      padding: 56px 0;
+      border-top: 1px solid var(--line);
+    }
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    h2 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 32px;
+    }
+
+    /* Cards / items */
+    .item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 32px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .item:last-child { border-bottom: none; }
+    .item-date {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 500;
+      padding-top: 4px;
+    }
+    .item-title {
+      font-size: 16.5px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .item-org {
+      font-size: 14px;
+      color: var(--ink-soft);
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+    .item ul {
+      list-style: none;
+      padding: 0;
+    }
+    .item ul li {
+      position: relative;
+      padding-left: 16px;
+      font-size: 14.5px;
+      color: var(--ink-soft);
+      margin-bottom: 6px;
+    }
+    .item ul li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 4px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    /* Awards grid */
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .award {
+      padding: 16px 18px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      font-size: 14px;
+      color: var(--ink);
+      transition: all 0.2s;
+    }
+    .award:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow);
+    }
+    .award-year {
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    /* Media stats */
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .media-card {
+      padding: 24px 20px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      transition: all 0.2s;
+    }
+    .media-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+    .media-platform {
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 8px;
+      letter-spacing: 0.05em;
+    }
+    .media-stat {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 4px;
+      letter-spacing: -0.02em;
+    }
+    .media-label {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .media-card p {
+      font-size: 13.5px;
+      color: var(--ink-soft);
+      line-height: 1.55;
+    }
+
+    .youtube-embed {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #eee;
+      margin-top: 12px;
+      border: 1px solid var(--line);
+    }
+    .youtube-embed iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: 0;
+    }
+    .youtube-placeholder {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 14px;
+      background: var(--accent-soft);
+    }
+
+    /* Skills */
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .skill-tag {
+      padding: 8px 16px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      font-size: 14px;
+      color: var(--ink);
+      transition: all 0.2s;
+    }
+    .skill-tag:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .skill-group { margin-bottom: 20px; }
+    .skill-group h3 {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 10px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* Footer */
+    footer {
+      padding: 40px 32px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid var(--line);
+      margin-top: 40px;
+    }
+
+    /* Mobile */
+    @media (max-width: 720px) {
+      .nav-inner { padding: 14px 20px; }
+      .nav-links { gap: 14px; }
+      .nav-links a { display: none; }
+      main { padding: 0 20px; }
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        text-align: center;
+        padding: 48px 0 40px;
+      }
+      .hero-photo { width: 140px; height: 140px; font-size: 48px; margin: 0 auto; }
+      .hero h1 { font-size: 32px; }
+      .contact { justify-content: center; }
+      .item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .awards-grid, .media-grid { grid-template-columns: 1fr; }
+      h2 { font-size: 24px; }
+    }
+
+    /* Language switching */
+    [data-lang-en], [data-lang-zh] { display: none; }
+    html[lang="zh-TW"] [data-lang-zh] { display: inline; }
+    html[lang="zh-TW"] li[data-lang-zh],
+    html[lang="zh-TW"] p[data-lang-zh],
+    html[lang="zh-TW"] div[data-lang-zh] { display: block; }
+    html[lang="en"] [data-lang-en] { display: inline; }
+    html[lang="en"] li[data-lang-en],
+    html[lang="en"] p[data-lang-en],
+    html[lang="en"] div[data-lang-en] { display: block; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-name">Alvin Chang</div>
+    <div class="nav-links">
+      <a href="#about"><span data-lang-zh>關於</span><span data-lang-en>About</span></a>
+      <a href="#education"><span data-lang-zh>學歷</span><span data-lang-en>Education</span></a>
+      <a href="#experience"><span data-lang-zh>經歷</span><span data-lang-en>Experience</span></a>
+      <a href="#media"><span data-lang-zh>自媒體</span><span data-lang-en>Media</span></a>
+      <a href="#skills"><span data-lang-zh>技能</span><span data-lang-en>Skills</span></a>
+      <button class="lang-toggle" onclick="toggleLang()" id="langBtn">EN</button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <!-- Hero / About -->
+  <section class="hero" id="about" style="border-top: none;">
+    <div class="hero-photo">
+      <!-- 替換為你的照片：把照片放在同目錄並命名為 profile.jpg，下方註解的 img 標籤取消註解即可 -->
+      <!-- <img src="profile.jpg" alt="Alvin Chang"> -->
+      AC
+    </div>
+    <div>
+      <h1>
+        <span data-lang-zh>張允軒</span>
+        <span data-lang-en>Alvin Chang</span>
+      </h1>
+      <div class="subtitle">
+        <span data-lang-zh>傳播研究所｜內容創作者｜品牌行銷</span>
+        <span data-lang-en>Communication Graduate Student · Content Creator · Brand Marketing</span>
+      </div>
+      <p data-lang-zh>國立陽明交通大學傳播研究所碩士生，擁有 35,000+ 訂閱者的 YouTube 創作者、Podcast 主持人，曾於國泰金融控股、藍色趨勢數位溝通整合顧問、三立電視等品牌與媒體實習，擅長內容策略、品牌行銷與數據分析。</p>
+      <p data-lang-en>Master's student at National Yang Ming Chiao Tung University (Communication Studies). YouTuber with 35K+ subscribers and 10M+ views. Internship experience at Cathay Financial Holdings, One For All PR, and Sanlih Entertainment Television. Skilled in content strategy, brand marketing, and data analytics.</p>
+      <div class="contact">
+        <a href="mailto:alvinchang901129@gmail.com">✉ alvinchang901129@gmail.com</a>
+        <!-- 替換成你的 YouTube 頻道網址 -->
+        <a href="#" target="_blank">▶ YouTube</a>
+        <!-- 替換成你的 LinkedIn -->
+        <a href="#" target="_blank">in LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education">
+    <div class="section-label">
+      <span data-lang-zh>學歷與獎項</span>
+      <span data-lang-en>Education & Awards</span>
+    </div>
+    <h2>
+      <span data-lang-zh>教育背景</span>
+      <span data-lang-en>Education</span>
+    </h2>
+
+    <div class="item">
+      <div class="item-date">2024 – Present</div>
+      <div>
+        <div class="item-title">
+          <span data-lang-zh>國立陽明交通大學</span>
+          <span data-lang-en>National Yang Ming Chiao Tung University</span>
+        </div>
+        <div class="item-org">
+          <span data-lang-zh>傳播研究所碩士｜GPA 4.3</span>
+          <span data-lang-en>Master of Communication Studies · GPA 4.3</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-date">2021 – 2024</div>
+      <div>
+        <div class="item-title">
+          <span data-lang-zh>國立中正大學</span>
+          <span data-lang-en>National Chung Cheng University</span>
+        </div>
+        <div class="item-org">
+          <span data-lang-zh>傳播學系學士</span>
+          <span data-lang-en>Bachelor of Communication</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-date">2020 – 2021</div>
+      <div>
+        <div class="item-title">
+          <span data-lang-zh>國立中正大學</span>
+          <span data-lang-en>National Chung Cheng University</span>
+        </div>
+        <div class="item-org">
+          <span data-lang-zh>外國語文學系學士</span>
+          <span data-lang-en>Bachelor of Foreign Languages and Literature</span>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="margin-top: 48px;">
+      <span data-lang-zh>獎項與榮譽</span>
+      <span data-lang-en>Awards & Honors</span>
+    </h2>
+    <div class="awards-grid">
+      <div class="award">
+        <div class="award-year">2026</div>
+        <span data-lang-zh>清大管顧社 一日管顧專案競賽 冠軍</span>
+        <span data-lang-en>NTHU Consulting Club Case Competition – Champion</span>
+      </div>
+      <div class="award">
+        <div class="award-year">2025</div>
+        <span data-lang-zh>陽明交大研究所獎學金</span>
+        <span data-lang-en>NYCU Academic Achievement Award</span>
+      </div>
+      <div class="award">
+        <div class="award-year">2023</div>
+        <span data-lang-zh>中央社陳博生先生新聞獎學金</span>
+        <span data-lang-en>CNA Mr. Chen Bosheng Journalism Scholarship</span>
+      </div>
+      <div class="award">
+        <div class="award-year">2023</div>
+        <span data-lang-zh>聯合報王惕吾先生新聞獎學金</span>
+        <span data-lang-en>UDN Mr. Wang Tiwu Journalism Scholarship</span>
+      </div>
+      <div class="award">
+        <div class="award-year">2023</div>
+        <span data-lang-zh>中正大學校長獎</span>
+        <span data-lang-en>CCU President's Award</span>
+      </div>
+      <div class="award">
+        <div class="award-year">2025</div>
+        <span data-lang-zh>LINE FRESH 校園競賽 入圍</span>
+        <span data-lang-en>LINE FRESH Campus Competition – Finalist</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience">
+    <div class="section-label">
+      <span data-lang-zh>實習經歷</span>
+      <span data-lang-en>Experience</span>
+    </div>
+    <h2>
+      <span data-lang-zh>實習經歷</span>
+      <span data-lang-en>Internship Experience</span>
+    </h2>
+
+    <div class="item">
+      <div class="item-date">2025.07 – 2025.08</div>
+      <div>
+        <div class="item-title">
+          <span data-lang-zh>國泰金融控股股份有限公司</span>
+          <span data-lang-en>Cathay Financial Holdings</span>
+        </div>
+        <div class="item-org">
+          <span data-lang-zh>品牌研發科 實習生</span>
+          <span data-lang-en>Brand Strategy Planning & Marketing Intern</span>
+        </div>
+        <ul>
+          <li data-lang-zh>執行國泰雲門隨行吧、國泰永續識務所、國泰金控員工大會三大品牌專案</li>
+          <li data-lang-en>Executed three corporate branding initiatives: Cathay Cloud Gate Bar, Cathay ESG Insights, and Cathay Town Hall</li>
+          <li data-lang-zh>設計 Key Visual 與規劃外部社群素材，傳遞國泰品牌價值</li>
+          <li data-lang-en>Designed Key Visuals and curated social media content to communicate Cathay's brand values</li>
+          <li data-lang-zh>負責廠商比稿、國泰金控健康走活動規劃</li>
+          <li data-lang-en>Managed vendor pitches and Cathay Health Walk event planning</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-date">2023.08 – 2024.08</div>
+      <div>
+        <div class="item-title">
+          <span data-lang-zh>藍色趨勢數位溝通整合顧問</span>
+          <span data-lang-en>One For All Public Relations Consultants Co.</span>
+        </div>
+        <div class="item-org">
+          <span data-lang-zh>數位行銷實習生</span>
+          <span data-lang-en>Digital Marketing Intern</span>
+        </div>
+        <ul>
+          <li data-lang-zh>規劃 2023、2024 渣打馬拉松粉絲專頁貼文主題與腳本撰寫</li>
+          <li data-lang-en>Developed content strategies and scripts for 2023 & 2024 Standard Chartered Taipei Charity Marathon</li>
+          <li data-lang-zh>負責 Line Podcast 主題規劃、30 秒 Teaser 腳本與上架管理</li>
+          <li data-lang-en>Managed Line Podcast production: thematic programming, teaser scripting, end-to-end distribution</li>
+          <li data-lang-zh>向 Nespresso、Hoka、Duskin 等品牌進行商業合作 KOL 提案</li>
+          <li data-lang-en>Pitched influencer marketing & brand partnership proposals to Nespresso, Hoka, Duskin</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-date">2022.09 – 2023.06</div>
+      <div>
+        <div class="item-title">
+          <span data-lang-zh>中正 e 報</span>
+          <span data-lang-en>Chung Cheng E-News</span>
+        </div>
+        <div class="item-org">
+          <span data-lang-zh>實習記者 / 節目製作人</span>
+          <span data-lang-en>Reporter & Producer Intern</span>
+        </div>
+        <ul>
+          <li data-lang-zh>產製 4 則影音新聞（含 1 篇專題）、7 篇文字新聞與 1 支外景節目</li>
+          <li data-lang-en>Produced 4 video news segments (including 1 feature), 7 articles, and 1 location-based show</li>
+          <li data-lang-zh>新聞曾於公共電視 Peopo 公民新聞平台播出</li>
+          <li data-lang-en>News content featured on PTS Peopo Citizen Journalism platform</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-date">2022.07 – 2022.08</div>
+      <div>
+        <div class="item-title">
+          <span data-lang-zh>三立電視股份有限公司</span>
+          <span data-lang-en>Sanlih Entertainment Television</span>
+        </div>
+        <div class="item-org">
+          <span data-lang-zh>實習體育記者</span>
+          <span data-lang-en>Sports Reporter Intern</span>
+        </div>
+        <ul>
+          <li data-lang-zh>於新聞編輯室撰寫超過 40 則體育新聞稿</li>
+          <li data-lang-en>Drafted 40+ sports news scripts in a fast-paced newsroom environment</li>
+          <li data-lang-zh>現場採訪、撰稿、資料統整</li>
+          <li data-lang-en>On-site reporting, scripting, and data compilation</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Self Media -->
+  <section id="media">
+    <div class="section-label">
+      <span data-lang-zh>自媒體經營</span>
+      <span data-lang-en>Self-Media</span>
+    </div>
+    <h2>
+      <span data-lang-zh>內容創作與經營成果</span>
+      <span data-lang-en>Content Creation & Audience</span>
+    </h2>
+
+    <div class="media-grid">
+      <div class="media-card">
+        <div class="media-platform">YouTube</div>
+        <div class="media-stat">35K+</div>
+        <div class="media-label">
+          <span data-lang-zh>訂閱者 · 1000 萬+ 觀看</span>
+          <span data-lang-en>subscribers · 10M+ views</span>
+        </div>
+        <p data-lang-zh>運動主題頻道，產製 154+ 部影片，曾與 LINE、福斯商旅、Surfshark、虹牌油漆等品牌合作。</p>
+        <p data-lang-en>Sports-focused channel with 154+ videos and brand collaborations with LINE, Volkswagen Commercial Vehicles, Surfshark, and more.</p>
+      </div>
+      <div class="media-card">
+        <div class="media-platform">Instagram</div>
+        <div class="media-stat">13K+</div>
+        <div class="media-label">
+          <span data-lang-zh>追蹤者 · 350+ 篇貼文</span>
+          <span data-lang-en>followers · 350+ posts</span>
+        </div>
+        <p data-lang-zh>貼文設計規劃、主題發想、行銷推廣、文案撰寫與後台數據分析。</p>
+        <p data-lang-en>Content planning, copywriting, marketing, and analytics across 350+ original posts.</p>
+      </div>
+      <div class="media-card">
+        <div class="media-platform">Podcast</div>
+        <div class="media-stat">20K+</div>
+        <div class="media-label">
+          <span data-lang-zh>收聽 · 100+ 集節目</span>
+          <span data-lang-en>plays · 100+ episodes</span>
+        </div>
+        <p data-lang-zh>中正之聲電台主持人，腳本撰寫、數據觀察、節目推廣與主持。</p>
+        <p data-lang-en>Host at Chung Cheng Voice Radio. Scripting, audience analytics, programming, and on-air hosting.</p>
+      </div>
+    </div>
+
+    <!-- YouTube Embed Placeholder：把下方 VIDEO_ID 換成你的影片 ID -->
+    <div class="youtube-embed">
+      <div class="youtube-placeholder">
+        <strong style="color: var(--accent); font-size: 16px;">YouTube</strong>
+        <div data-lang-zh>請將下方的 VIDEO_ID 換成你想嵌入的影片 ID</div>
+        <div data-lang-en>Replace VIDEO_ID below with your YouTube video ID</div>
+      </div>
+      <!-- 啟用時，把上面的 placeholder div 刪除，並取消下方註解
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID"
+              title="YouTube video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+      -->
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="section-label">
+      <span data-lang-zh>技能</span>
+      <span data-lang-en>Skills</span>
+    </div>
+    <h2>
+      <span data-lang-zh>專業技能</span>
+      <span data-lang-en>Core Skills</span>
+    </h2>
+
+    <div class="skill-group">
+      <h3>
+        <span data-lang-zh>內容創作</span>
+        <span data-lang-en>Content Creation</span>
+      </h3>
+      <div class="skill-tags">
+        <div class="skill-tag"><span data-lang-zh>腳本撰寫</span><span data-lang-en>Scriptwriting</span></div>
+        <div class="skill-tag"><span data-lang-zh>影片剪輯</span><span data-lang-en>Video Editing</span></div>
+        <div class="skill-tag">Adobe Premiere</div>
+        <div class="skill-tag"><span data-lang-zh>節目企劃</span><span data-lang-en>Program Planning</span></div>
+        <div class="skill-tag"><span data-lang-zh>主持</span><span data-lang-en>Hosting</span></div>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>
+        <span data-lang-zh>行銷與品牌</span>
+        <span data-lang-en>Marketing & Brand</span>
+      </h3>
+      <div class="skill-tags">
+        <div class="skill-tag"><span data-lang-zh>品牌行銷</span><span data-lang-en>Brand Marketing</span></div>
+        <div class="skill-tag"><span data-lang-zh>內容策略</span><span data-lang-en>Content Strategy</span></div>
+        <div class="skill-tag"><span data-lang-zh>KOL 提案</span><span data-lang-en>Influencer Pitching</span></div>
+        <div class="skill-tag"><span data-lang-zh>社群經營</span><span data-lang-en>Social Media</span></div>
+        <div class="skill-tag"><span data-lang-zh>Key Visual 設計</span><span data-lang-en>Key Visual Design</span></div>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>
+        <span data-lang-zh>數據與工具</span>
+        <span data-lang-en>Data & Tools</span>
+      </h3>
+      <div class="skill-tags">
+        <div class="skill-tag">SQL</div>
+        <div class="skill-tag"><span data-lang-zh>後台數據分析</span><span data-lang-en>Analytics</span></div>
+        <div class="skill-tag"><span data-lang-zh>市場研究</span><span data-lang-en>Market Research</span></div>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>
+        <span data-lang-zh>語言能力</span>
+        <span data-lang-en>Languages</span>
+      </h3>
+      <div class="skill-tags">
+        <div class="skill-tag"><span data-lang-zh>中文（母語）</span><span data-lang-en>Chinese (Native)</span></div>
+        <div class="skill-tag">TOEIC 945 / 990</div>
+        <div class="skill-tag"><span data-lang-zh>GEPT 中高級</span><span data-lang-en>GEPT High-Intermediate</span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div>
+    <span data-lang-zh>© 2026 張允軒 Alvin Chang｜以 GitHub Pages 架設</span>
+    <span data-lang-en>© 2026 Alvin Chang · Built with GitHub Pages</span>
+  </div>
+</footer>
+
+<script>
+  function toggleLang() {
+    const html = document.documentElement;
+    const btn = document.getElementById('langBtn');
+    if (html.getAttribute('lang') === 'zh-TW') {
+      html.setAttribute('lang', 'en');
+      btn.textContent = '中';
+    } else {
+      html.setAttribute('lang', 'zh-TW');
+      btn.textContent = 'EN';
+    }
+    localStorage.setItem('preferredLang', html.getAttribute('lang'));
+  }
+  // 載入時讀取偏好語言
+  (function() {
+    const saved = localStorage.getItem('preferredLang');
+    if (saved) {
+      document.documentElement.setAttribute('lang', saved);
+      document.getElementById('langBtn').textContent = saved === 'zh-TW' ? 'EN' : '中';
+    }
+  })();
+</script>
+
+</body>
+</html>
