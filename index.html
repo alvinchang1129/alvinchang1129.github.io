@@ -343,7 +343,117 @@
       letter-spacing: 0.05em;
       text-transform: uppercase;
     }
-
+/* Projects */
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      transition: all 0.2s;
+    }
+    .project-card[open] {
+      border-color: var(--accent);
+      box-shadow: var(--shadow);
+    }
+    .project-card summary {
+      padding: 20px 24px;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      transition: background 0.2s;
+    }
+    .project-card summary::-webkit-details-marker { display: none; }
+    .project-card summary:hover { background: var(--accent-soft); }
+    .project-summary-left { flex: 1; }
+    .project-title {
+      font-size: 16.5px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .project-tagline {
+      font-size: 13.5px;
+      color: var(--muted);
+    }
+    .project-arrow {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 600;
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .project-card[open] .project-arrow { transform: rotate(45deg); }
+    .project-body {
+      padding: 0 24px 24px;
+      border-top: 1px solid var(--line);
+      padding-top: 20px;
+      font-size: 14.5px;
+      color: var(--ink-soft);
+      line-height: 1.7;
+    }
+    .project-body h4 {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin: 16px 0 8px;
+    }
+    .project-body h4:first-child { margin-top: 0; }
+    .project-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 12px 0;
+    }
+    .project-stat {
+      padding: 14px;
+      background: var(--bg);
+      border-radius: 8px;
+      text-align: center;
+    }
+    .project-stat .num {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+    }
+    .project-stat .lbl {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 16px;
+      padding: 8px 16px;
+      background: var(--ink);
+      color: white;
+      border-radius: 20px;
+      font-size: 13.5px;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    .project-link:hover {
+      background: var(--accent);
+      text-decoration: none;
+      color: white;
+    }
+    @media (max-width: 720px) {
+      .project-stats { grid-template-columns: 1fr; }
+    }
     /* Footer */
     footer {
       padding: 40px 32px;
@@ -398,6 +508,7 @@
       <a href="#about"><span data-lang-zh>關於</span><span data-lang-en>About</span></a>
       <a href="#education"><span data-lang-zh>學歷</span><span data-lang-en>Education</span></a>
       <a href="#experience"><span data-lang-zh>經歷</span><span data-lang-en>Experience</span></a>
+      <a href="#projects"><span data-lang-zh>專案</span><span data-lang-en>Projects</span></a>
       <a href="#media"><span data-lang-zh>自媒體</span><span data-lang-en>Media</span></a>
       <a href="#skills"><span data-lang-zh>技能</span><span data-lang-en>Skills</span></a>
       <button class="lang-toggle" onclick="toggleLang()" id="langBtn">EN</button>
@@ -617,7 +728,146 @@
       </div>
     </div>
   </section>
+<!-- Projects -->
+  <section id="projects">
+    <div class="section-label">
+      <span data-lang-zh>專案執行</span>
+      <span data-lang-en>Projects</span>
+    </div>
+    <h2>
+      <span data-lang-zh>精選專案</span>
+      <span data-lang-en>Featured Projects</span>
+    </h2>
 
+    <!-- 專案 1 -->
+    <details class="project-card">
+      <summary>
+        <div class="project-summary-left">
+          <div class="project-title">
+            <span data-lang-zh>清大管顧社 一日管顧專案競賽</span>
+            <span data-lang-en>Project 1 Title</span>
+          </div>
+          <div class="project-tagline">
+            <span data-lang-zh>一句話說明你的角色與成果</span>
+            <span data-lang-en>One-line description of your role and outcome</span>
+          </div>
+        </div>
+        <div class="project-arrow">+</div>
+      </summary>
+      <div class="project-body">
+        <h4><span data-lang-zh>專案概述</span><span data-lang-en>Overview</span></h4>
+        <p data-lang-zh>在這裡寫專案背景、你的角色、執行內容（建議 2–4 行）。</p>
+        <p data-lang-en>Describe the project background, your role, and what you did (2–4 lines recommended).</p>
+
+        <h4><span data-lang-zh>成果數據</span><span data-lang-en>Key Results</span></h4>
+        <div class="project-stats">
+          <div class="project-stat">
+            <div class="num">數字1</div>
+            <div class="lbl"><span data-lang-zh>單位</span><span data-lang-en>unit</span></div>
+          </div>
+          <div class="project-stat">
+            <div class="num">數字2</div>
+            <div class="lbl"><span data-lang-zh>單位</span><span data-lang-en>unit</span></div>
+          </div>
+          <div class="project-stat">
+            <div class="num">數字3</div>
+            <div class="lbl"><span data-lang-zh>單位</span><span data-lang-en>unit</span></div>
+          </div>
+        </div>
+
+        <a href="#" target="_blank" class="project-link">
+          <span data-lang-zh>查看完整作品 →</span>
+          <span data-lang-en>View Full Project →</span>
+        </a>
+      </div>
+    </details>
+
+    <!-- 專案 2 -->
+    <details class="project-card">
+      <summary>
+        <div class="project-summary-left">
+          <div class="project-title">
+            <span data-lang-zh>專案 2 名稱</span>
+            <span data-lang-en>Project 2 Title</span>
+          </div>
+          <div class="project-tagline">
+            <span data-lang-zh>一句話說明你的角色與成果</span>
+            <span data-lang-en>One-line description of your role and outcome</span>
+          </div>
+        </div>
+        <div class="project-arrow">+</div>
+      </summary>
+      <div class="project-body">
+        <h4><span data-lang-zh>專案概述</span><span data-lang-en>Overview</span></h4>
+        <p data-lang-zh>在這裡寫專案背景、你的角色、執行內容。</p>
+        <p data-lang-en>Describe the project background, your role, and what you did.</p>
+
+        <h4><span data-lang-zh>成果數據</span><span data-lang-en>Key Results</span></h4>
+        <div class="project-stats">
+          <div class="project-stat">
+            <div class="num">數字1</div>
+            <div class="lbl"><span data-lang-zh>單位</span><span data-lang-en>unit</span></div>
+          </div>
+          <div class="project-stat">
+            <div class="num">數字2</div>
+            <div class="lbl"><span data-lang-zh>單位</span><span data-lang-en>unit</span></div>
+          </div>
+          <div class="project-stat">
+            <div class="num">數字3</div>
+            <div class="lbl"><span data-lang-zh>單位</span><span data-lang-en>unit</span></div>
+          </div>
+        </div>
+
+        <a href="#" target="_blank" class="project-link">
+          <span data-lang-zh>查看完整作品 →</span>
+          <span data-lang-en>View Full Project →</span>
+        </a>
+      </div>
+    </details>
+
+    <!-- 專案 3 -->
+    <details class="project-card">
+      <summary>
+        <div class="project-summary-left">
+          <div class="project-title">
+            <span data-lang-zh>專案 3 名稱</span>
+            <span data-lang-en>Project 3 Title</span>
+          </div>
+          <div class="project-tagline">
+            <span data-lang-zh>一句話說明你的角色與成果</span>
+            <span data-lang-en>One-line description of your role and outcome</span>
+          </div>
+        </div>
+        <div class="project-arrow">+</div>
+      </summary>
+      <div class="project-body">
+        <h4><span data-lang-zh>專案概述</span><span data-lang-en>Overview</span></h4>
+        <p data-lang-zh>在這裡寫專案背景、你的角色、執行內容。</p>
+        <p data-lang-en>Describe the project background, your role, and what you did.</p>
+
+        <h4><span data-lang-zh>成果數據</span><span data-lang-en>Key Results</span></h4>
+        <div class="project-stats">
+          <div class="project-stat">
+            <div class="num">數字1</div>
+            <div class="lbl"><span data-lang-zh>單位</span><span data-lang-en>unit</span></div>
+          </div>
+          <div class="project-stat">
+            <div class="num">數字2</div>
+            <div class="lbl"><span data-lang-zh>單位</span><span data-lang-en>unit</span></div>
+          </div>
+          <div class="project-stat">
+            <div class="num">數字3</div>
+            <div class="lbl"><span data-lang-zh>單位</span><span data-lang-en>unit</span></div>
+          </div>
+        </div>
+
+        <a href="#" target="_blank" class="project-link">
+          <span data-lang-zh>查看完整作品 →</span>
+          <span data-lang-en>View Full Project →</span>
+        </a>
+      </div>
+    </details>
+  </section>
   <!-- Self Media -->
   <section id="media">
     <div class="section-label">
