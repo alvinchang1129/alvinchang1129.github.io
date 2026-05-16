@@ -497,6 +497,48 @@
     html[lang="en"] li[data-lang-en],
     html[lang="en"] p[data-lang-en],
     html[lang="en"] div[data-lang-en] { display: block; }
+    .media-side {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 22px 24px;
+    }
+    .media-side-h {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0;
+      color: var(--ink);
+      text-transform: none;
+      margin-bottom: 14px;
+    }
+    .media-side p {
+      font-size: 15.5px;
+      color: var(--ink-soft);
+      line-height: 1.75;
+      margin-bottom: 10px;
+    }
+    .video-list { list-style: none; padding: 0; }
+    .video-list li { border-bottom: 1px solid var(--line); }
+    .video-list li:last-child { border-bottom: none; }
+    .video-list a {
+      display: block;
+      padding: 12px 0;
+      color: var(--ink);
+      font-size: 15px;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .video-list a:hover {
+      padding-left: 6px;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .video-list-meta {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 2px;
+      font-weight: 400;
+    }
   </style>
 </head>
 <body>
