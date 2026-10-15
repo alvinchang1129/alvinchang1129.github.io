@@ -4,7 +4,7 @@
 
 ## 線上預覽
 部署完成後可透過以下網址瀏覽：
-`https://<你的GitHub帳號>.github.io`
+https://alvinchang1129.github.io
 
 ## 特色
 - 中英雙語切換（記憶使用者偏好）
